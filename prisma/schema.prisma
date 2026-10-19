@@ -1,0 +1,77 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Client {
+  id               String   @id @default(cuid())
+  company          String
+  contactName      String
+  email            String
+  role             String   @default("Lead Architect")
+  status           String   @default("Active") // "Active", "Archived", "Lead"
+  assignedProjects String[]
+  totalBilled      String   @default("$0")
+  notes            String?  @db.Text
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([email])
+  @@index([status])
+}
+
+model Invoice {
+  id            String   @id @default(cuid())
+  invoiceNumber String   @unique
+  clientCompany String
+  clientEmail   String
+  projectSlug   String   @default("general-architecture")
+  projectTitle  String   @default("Architecture & System Consulting")
+  issueDate     String
+  dueDate       String
+  totalAmount   Float    @default(0)
+  status        String   @default("pending") // "paid", "pending", "overdue"
+  description   String   @default("Production Milestone Deliverable")
+  lineItems     Json?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([invoiceNumber])
+  @@index([clientEmail])
+  @@index([status])
+}
+
+model ClientInquiry {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  company     String?
+  serviceType String   @default("actuarial-glm")
+  timeline    String   @default("2-4 weeks")
+  budgetTier  String   @default("$10k - $25k")
+  details     String   @db.Text
+  status      String   @default("new") // "new", "reviewed", "scheduled", "archived"
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([email])
+  @@index([status])
+}
+
+model User {
+  id           String   @id @default(cuid())
+  username     String   @unique
+  passwordHash String
+  displayName  String
+  role         String   @default("user") // "superadmin", "admin", "dev", "user", "guest"
+  badge        String   @default("MEMBER // VERIFIED")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([username])
+  @@index([role])
+}
