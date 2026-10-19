@@ -71,14 +71,14 @@ export default async function ClientPortalPage() {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-12">
       
       {/* Top Banner */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-b border-black/10 dark:border-white/10 pb-8">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-b border-neutral-200/70 dark:border-white/10 pb-8">
         <div className="space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-600 dark:text-indigo-400 font-mono text-xs font-semibold">
+          <div className="status-pill inline-flex items-center gap-2">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
             <span>CONFIDENTIAL CLIENT ENGAGEMENT PORTAL</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl font-serif font-bold text-neutral-900 dark:text-white tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-editorial text-neutral-950 dark:text-white font-normal tracking-tight">
             Client Delivery Dashboard
           </h1>
 
@@ -94,7 +94,7 @@ export default async function ClientPortalPage() {
         <div className="flex items-center gap-3">
           <a
             href="mailto:akshatdhaundiyal@gmail.com?subject=Client%20Portal%20Sync%20Request"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#d94e34] hover:bg-[#c23f26] text-white font-mono text-xs font-semibold shadow-md transition-all"
+            className="pill-btn-primary px-4 py-2.5 text-xs font-semibold uppercase tracking-wider gap-2 shadow-xs"
           >
             <Mail className="w-3.5 h-3.5" />
             <span>Request Engineering Sync</span>
@@ -103,7 +103,7 @@ export default async function ClientPortalPage() {
           {user?.role === "superadmin" || user?.role === "admin" ? (
             <Link
               href="/admin/projects"
-              className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 font-mono text-xs text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white"
+              className="pill-btn-secondary px-3.5 py-2.5 text-xs font-medium gap-1.5"
             >
               <span>Admin Studio</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -124,7 +124,7 @@ export default async function ClientPortalPage() {
       <ClientInvoiceCard invoices={invoices} />
 
       {/* 3. Direct Advisory Support Notice */}
-      <div className="rounded-2xl p-6 bg-neutral-50 dark:bg-[#1a1b20] border border-black/10 dark:border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="rounded-2xl sm:rounded-3xl p-6 bg-[#F8F9FA] dark:bg-zinc-900/40 border border-neutral-200/70 dark:border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="space-y-1">
           <div className="font-mono text-xs font-bold text-neutral-800 dark:text-neutral-200">
             Need an urgent revision or architecture scope adjustment?
@@ -136,7 +136,7 @@ export default async function ClientPortalPage() {
 
         <Link
           href="/inquiry"
-          className="font-mono text-xs text-[#d94e34] dark:text-[#f87171] hover:underline flex items-center gap-1 whitespace-nowrap"
+          className="pill-btn-secondary px-4 py-2 text-xs font-medium hover:border-black dark:hover:border-white flex items-center gap-1.5 whitespace-nowrap"
         >
           <span>Commission Additional Sprints</span>
           <ArrowRight className="w-3.5 h-3.5" />
