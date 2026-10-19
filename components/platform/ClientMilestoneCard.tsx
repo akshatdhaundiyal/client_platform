@@ -23,15 +23,15 @@ export default function ClientMilestoneCard({
   milestones,
 }: Props) {
   return (
-    <div className="rounded-3xl bg-white dark:bg-[#16171b] border border-black/10 dark:border-white/10 p-6 sm:p-8 shadow-xl space-y-6">
+    <div className="rounded-3xl bg-white dark:bg-[#16171b] border border-neutral-200/80 dark:border-white/10 p-6 sm:p-8 shadow-xs space-y-6">
       
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-black/10 dark:border-white/10 pb-5">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-neutral-200/70 dark:border-white/10 pb-5">
         <div>
           <span className="font-mono text-xs uppercase tracking-widest text-indigo-600 dark:text-indigo-400 font-bold">
             ACTIVE CONTRACT ENGAGEMENT
           </span>
-          <h3 className="font-serif text-2xl font-bold text-neutral-900 dark:text-white mt-1">
+          <h3 className="font-editorial text-2xl font-normal text-neutral-950 dark:text-white mt-1">
             {projectTitle}
           </h3>
           <p className="font-mono text-xs text-neutral-500 mt-0.5">{category}</p>

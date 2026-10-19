@@ -13,15 +13,15 @@ export default function ClientInvoiceCard({ invoices }: Props) {
     .reduce((acc, inv) => acc + inv.totalAmount, 0);
 
   return (
-    <div className="rounded-3xl bg-white dark:bg-[#16171b] border border-black/10 dark:border-white/10 p-6 sm:p-8 shadow-xl space-y-6">
+    <div className="rounded-3xl bg-white dark:bg-[#16171b] border border-neutral-200/80 dark:border-white/10 p-6 sm:p-8 shadow-xs space-y-6">
       
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-black/10 dark:border-white/10 pb-5">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-neutral-200/70 dark:border-white/10 pb-5">
         <div>
           <span className="font-mono text-xs uppercase tracking-widest text-[#d94e34] dark:text-[#f87171] font-bold">
             COMMERCIAL FINOPS & BILLING
           </span>
-          <h3 className="font-serif text-2xl font-bold text-neutral-900 dark:text-white mt-1">
+          <h3 className="font-editorial text-2xl font-normal text-neutral-950 dark:text-white mt-1">
             Statements & Milestone Invoices
           </h3>
           <p className="font-mono text-xs text-neutral-500 mt-0.5">
@@ -30,14 +30,14 @@ export default function ClientInvoiceCard({ invoices }: Props) {
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="p-3 rounded-2xl bg-neutral-50 dark:bg-[#1f2026] border border-black/5 dark:border-white/5 text-right">
+          <div className="p-3 rounded-2xl bg-[#F8F9FA] dark:bg-zinc-900/60 border border-neutral-200/70 dark:border-white/10 text-right">
             <div className="font-mono text-xs text-neutral-500">Pending Settlement</div>
             <div className="font-mono text-lg font-bold text-amber-600 dark:text-amber-400">
               ${pendingAmount.toLocaleString()}
             </div>
           </div>
 
-          <div className="p-3 rounded-2xl bg-neutral-50 dark:bg-[#1f2026] border border-black/5 dark:border-white/5 text-right">
+          <div className="p-3 rounded-2xl bg-[#F8F9FA] dark:bg-zinc-900/60 border border-neutral-200/70 dark:border-white/10 text-right">
             <div className="font-mono text-xs text-neutral-500">Total Contract Value</div>
             <div className="font-mono text-lg font-bold text-neutral-900 dark:text-white">
               ${totalBilled.toLocaleString()}
@@ -60,7 +60,7 @@ export default function ClientInvoiceCard({ invoices }: Props) {
             return (
               <div
                 key={inv.id}
-                className="p-4 sm:p-5 rounded-2xl bg-neutral-50/50 dark:bg-[#1a1b20]/50 border border-black/5 dark:border-white/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all hover:border-black/15 dark:hover:border-white/15"
+                className="p-4 sm:p-5 rounded-2xl bg-[#F8F9FA]/60 dark:bg-zinc-900/40 border border-neutral-200/70 dark:border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all hover:border-black dark:hover:border-white/40"
               >
                 <div className="flex items-center gap-3.5">
                   <div className={`p-2.5 rounded-xl ${isPaid ? "bg-emerald-500/10 text-emerald-600" : isOverdue ? "bg-red-500/10 text-red-600" : "bg-amber-500/10 text-amber-600"}`}>
